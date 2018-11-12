@@ -54,3 +54,19 @@ class Creador{
         return this._videojuegos;
     }
 }
+
+
+class Genero{
+    // constructor
+    constructor(nombre){
+        this.nombre = nombre;
+    }
+
+    set nombre(nombre){
+        this._nombre = nombre;
+    }
+
+    get nombre(){
+        return this._nombre;
+    }
+}
