@@ -5,7 +5,7 @@ require_once 'includes/header.php';
 
 <main>
     <section>
-        <h1>VIDEOJUEGOS</h1>
+        <h1>MIS VIDEOJUEGOS</h1>
         <div id="videojuegos">
                     
         </div>
