@@ -1,14 +1,16 @@
 class Videojuego{
-    constructor(nombre, empresa, plataforma, genero, id){
+    constructor(nombre, empresa, plataforma, genero, img, id){
         this.nombre = nombre;
         this.empresa = empresa;
         this.plataforma = plataforma;
         this.genero = genero;
         this.id = id;
+        this.img = img;
+        this.votos = [];
     }
 
     get nombre(){
-        return _this._nombre;
+        return this._nombre;
     }
 
     get empresa(){
@@ -21,6 +23,14 @@ class Videojuego{
 
     get genero(){
         return this._genero;
+    }
+
+    get img(){
+        return this._img;
+    }
+
+    set img(img){
+        this._img = img;
     }
 
     set nombre(nombre){
@@ -46,6 +56,48 @@ class Videojuego{
     get id(){
         return this._id;
     }
+
+    set votos(votos){
+        this._votos = votos;
+    }
+
+    get votos(){
+        return this._votos;
+    }
+
+    addValoracion(valoracion){
+        this.votos.push(valoracion);
+    }
+
+    imprimirVotos(){
+        votacion = 0;
+        for (let i = 0; i < votos.length; i++) {
+            votacion += votos[i].voto;
+        }
+        return votacion;
+    }
+
+    mostrarVideojuegos(nodoHTML){
+		let bloque = document.createElement('div');
+		bloque.className = 'videojuego';
+
+		let imagen = document.createElement('img');
+		imagen.src = `images/${this.img}`;
+		let titulo = document.createElement('h1');
+		titulo.innerHTML = this.nombre; 
+		let genero = document.createElement('h2');
+		genero.innerHTML = this.genero;
+		let empresa = document.createElement('h3');
+        empresa.innerHTML = this.empresa.nombre;
+        let plataforma = document.createElement('h4');
+		plataforma.innerHTML = this.plataforma.nombre;
+		bloque.append(imagen);
+		bloque.append(titulo);
+		bloque.append(genero);
+        bloque.append(empresa);
+        bloque.append(plataforma);
+		nodoHTML.appendChild(bloque);
+	}
 }
 
 class Empresa{
@@ -78,7 +130,7 @@ class Empresa{
         return mensaje;
     }
 
-    añadirVideojuego(videojuego){
+    addVideojuego(videojuego){
         if(videojuego instanceof Videojuego){
         this.videojuegos.push(videojuego);
         }
@@ -147,30 +199,42 @@ class Usuario{
             this.videojuegosFavoritos.push(videojuego);
         }
     }
+
+    votarVideojuego(videojuego,voto){
+        let valoracion = new Voto(voto, this, videojuego);
+        videojuego.addValoracion(valoracion);
+        listaVotos.push(valoracion);
+    }
 }
 
-class Votos{
-    constructor(voto){
+class Voto{
+    constructor(voto, usuario, videojuego){
         this.voto = voto;
-    }
-
-    get voto(){
-        return this._voto; 
+        this.usuario = usuario;
+        this.videojuego = videojuego;
     }
 
     set voto(voto){
         this._voto = voto;
     }
 
-    votacion(voto){
-        if(voto>0){
-            voto("Positivo");
-        }
-        else if(voto<0){
-            voto("Negativo");
-        }
-        else{
-            voto("Neutral");
-        }
+    set voto(voto){
+        return this._voto; 
+    }
+
+    get usuario(){
+        return this._usuario; 
+    }
+
+    set usuario(usuario){
+        this._usuario = usuario;
+    }
+
+    get videojuego(){
+        return this._videojuego; 
+    }
+
+    set videojuego(videojuego){
+        this._videojuego = videojuego;
     }
 }

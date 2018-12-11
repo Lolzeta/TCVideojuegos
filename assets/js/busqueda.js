@@ -13,11 +13,23 @@ function buscarVideojuegoPorEmpresaYPlataforma(){
 function devolverSimilar(){
     let listaBuscada = [];
     let videojuegoId = document.getElementById('videojuegoBuscado').value;
-    videojuego = listaVideojuegos.find( x => x.id===videojuegoId);
+    let videojuego = listaVideojuegos.find( x => x.id===videojuegoId);
     for (let i = 0; i < listaVideojuegos.length; i++) {
         if(videojuego.genero===listaVideojuegos[i].genero && videojuego.plataforma===listaVideojuegos[i].plataforma){
             listaBuscada.push(listaVideojuegos[i]);
         }
     }
     return listaBuscada;
+}
+
+function buscarElementoUsuario(){
+    let usuarioBuscado = document.getElementById('usuarioBuscado').value;
+    let usuarioEncontrado = listaUsuarios.find( x => x.nombre===usuarioBuscado);
+    return usuarioEncontrado.listarVideojuegosFavorito();
+}
+
+function buscarVideojuegoPorNombre(){
+    let videojuegoBuscadoNombre = document.getElementById('videojuegoBuscadoNombre').value;
+    let videojuego = listaVideojuegos.find( x => x.nombre===videojuegoBuscadoNombre);
+    return videojuego;
 }
