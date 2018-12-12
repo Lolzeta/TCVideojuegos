@@ -215,3 +215,7 @@ body {
     margin: 10px;
     margin-left: 30px;
 }
+
+.errores{
+    color: red;
+}

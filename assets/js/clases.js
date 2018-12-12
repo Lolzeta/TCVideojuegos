@@ -1,4 +1,4 @@
-class Videojuego{
+    class Videojuego{
     constructor(nombre, empresa, plataforma, genero, img, id){
         this.nombre = nombre;
         this.empresa = empresa;
@@ -80,7 +80,6 @@ class Videojuego{
     mostrarVideojuegos(nodoHTML){
 		let bloque = document.createElement('div');
 		bloque.className = 'videojuego';
-
 		let imagen = document.createElement('img');
 		imagen.src = `images/${this.img}`;
 		let titulo = document.createElement('h1');
@@ -115,6 +114,16 @@ class Videojuego{
 		if(plataformaTratado != null){
 			let comprobacion = this.plataforma.nombre.toUpperCase();
             contiene = comprobacion.includes(plataformaTratado); 
+		}
+		return contiene;
+    }
+
+    contieneGenero(genero){
+		let contiene = false;
+		let generoTratado = tratarCadenasInput(genero);
+		if(generoTratado != null){
+			let comprobacion = this.genero.toUpperCase();
+            contiene = comprobacion.includes(generoTratado); 
 		}
 		return contiene;
     }

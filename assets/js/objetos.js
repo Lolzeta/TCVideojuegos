@@ -10,6 +10,8 @@ let plataformaSWITCH = new Plataforma("Switch");
 
 let listaEmpresas = [empresaBLZ, empresaVALVE, empresaNIN, empresaEA];
 
+let listaPlataformas = [plataformaPC, plataformaPS4, plataformaXBOX, plataformaSWITCH];
+
 let listaVideojuegos = [];
 
 let videojuegoHL = new Videojuego("Half-Life",empresaVALVE, plataformaPC, "FPS",  "half-life.jpg", undefined);
