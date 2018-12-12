@@ -97,7 +97,37 @@ class Videojuego{
         bloque.append(empresa);
         bloque.append(plataforma);
 		nodoHTML.appendChild(bloque);
+    }
+    
+	contieneEmpresa(empresa){
+		let contiene = false;
+		let empresaTratado = tratarCadenasInput(empresa);
+		if(empresaTratado !== null){
+            let comprobacion = this.empresa.nombre.toUpperCase();
+            contiene = comprobacion.includes(empresaTratado); 
+		}
+		return contiene;
 	}
+
+	contienePlataforma(plataforma){
+		let contiene = false;
+		let plataformaTratado = tratarCadenasInput(plataforma);
+		if(plataformaTratado != null){
+			let comprobacion = this.plataforma.nombre.toUpperCase();
+            contiene = comprobacion.includes(plataformaTratado); 
+		}
+		return contiene;
+    }
+    
+    videojuegoParecido(videojuego){
+        let contiene = false;
+        let videojuegoTratado = tratarCadenasInput(videojuego);
+        if(videojuego != null){
+            let comprobacion = this.nombre.toUpperCase();
+            contiene = comprobacion.includes(videojuegoTratado);
+        }
+        return contiene;
+    }
 }
 
 class Empresa{

@@ -163,3 +163,55 @@ body {
     right: 0;
     margin-left: 3px;
 }
+
+.busqueda{
+    background-color: lightblue;
+    font-weight: bold;
+    color: black;
+}
+
+.espaciado{
+    margin-top: 5px;
+    border-top: solid darkblue 3px; 
+}
+
+.busqueda input{
+    border-image: linear-gradient(to right,#EE7752, #E73C7E, #23A6D5, #23D5AB);
+    border-image-slice: 1;
+    border-width: 3px;
+}
+
+.crearVid{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    border: solid darkblue 3px;
+    color: black;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.crearVid input{
+    border-image: linear-gradient(to right,#EE7752, #E73C7E, #23A6D5, #23D5AB);
+    border-image-slice: 1;
+    border-width: 3px;
+}
+
+.campo{
+    margin: 10px;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+.tituloCrear{
+    color: darkviolet;
+    align-self: center;
+}
+
+#botonCrearVideojuego{
+    margin: 10px;
+    margin-left: 30px;
+}

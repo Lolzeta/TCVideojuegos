@@ -20,7 +20,32 @@
         <a href="usuario.html">Usuario</a>
         </div>
     </nav>
-    
+    <div class="busqueda">
+        <form id="busqueda1">
+            <label for="plataformaBuscada">Plataforma buscada:</label>
+            <input type="text" id="plataformaBuscada" name="plataformaBuscada">
+            <label for="empresaBuscada">Empresa buscada:</label>
+            <input type="text" id="empresaBuscada" name="empresaBuscada">
+            <button id="busquedaPlataformaEmpresa" name="busquedaPlataformaEmpresa">¡Buscar!</button>
+            <button id="resetearFiltros" name="resetearFiltros">¡Resetear!</button>
+        </form>
+
+        <div class="espaciado">
+            <form id="busqueda2">
+                <label for="busquedaUsuario">Elementos del usuario:</label>
+                <input type="text" id="busquedaUsuario" name="busquedaUsuario">
+                <button id='botonBuscarElementoUsuario' name='botonBuscarElementoUsuario'>Buscar elementos del usuario</button>
+            </form>
+        </div>
+
+        <div class="espaciado">
+            <form id="busqueda3">
+                <label for="videojuegoBuscadoNombre">Buscar juego por nombre:</label>
+                <input type="text" id="videojuegoBuscadoNombre" name="videojuegoBuscadoNombre">
+                <button id="botonBuscarVideojuegoNombre" name="botonBuscarVideojuegoNombre">Buscar juego</button>
+            </form>
+        </div>
+    </div>
     <main>
             <section>
                 <h2 class="titulo">LISTA DE VIDEOJUEGOS</h2>
@@ -34,6 +59,7 @@
             <script type="text/javascript" src="assets/js/clases.js" defer cache="false"></script>
             <script type="text/javascript" src="assets/js/utiles.js" defer cache="false"></script>
             <script type="text/javascript" src="assets/js/objetos.js" defer cache="false"></script>
+            <script type="text/javascript" src="assets/js/busqueda.js" defer cache="false"></script>
     </footer>
 </body>
 </html>

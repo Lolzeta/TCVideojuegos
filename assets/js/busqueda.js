@@ -1,14 +1,26 @@
 function buscarVideojuegoPorEmpresaYPlataforma(){
-    let listaBuscada = [];
-    let plataforma = tratarCadenasInput(document.getElementById('#plataformaBuscada').value);
-    let empresa = tratarCadenasInput(document.getElementById('#empresaBuscada').value);
-    for (let i = 0; i < listaVideojuegos.length; i++) {
-        if(listaVideojuegos[i].empresa.includes(empresa) && listaVideojuegos[i].plataforma.includes(plataforma)){
-            listaBuscada.push(listaVideojuegos[i]);
-        }
-    }
-    return listaBuscada;
+    let plataformaInput = document.getElementById('plataformaBuscada');
+    let empresaInput = document.getElementById('empresaBuscada');
+    let plataforma = plataformaInput.value;
+    let empresa = empresaInput.value;
+    let listaBuscada = listaVideojuegos.filter( videojuego => videojuego.contieneEmpresa(empresa) 
+                                                                && videojuego.contienePlataforma(plataforma)
+	);
+    mostrarVideojuegosHTML(listaBuscada);
+
 }
+
+    let botonEmpresaPlataforma = document.getElementById('busquedaPlataformaEmpresa');
+    botonEmpresaPlataforma.addEventListener("click", function(event){
+        event.preventDefault();
+        buscarVideojuegoPorEmpresaYPlataforma();
+    });
+
+    resetearFiltros.addEventListener("click", function(event){
+        event.preventDefault();
+        mostrarVideojuegosHTML(listaVideojuegos);
+    });
+
 
 function devolverSimilar(){
     let listaBuscada = [];
@@ -19,17 +31,30 @@ function devolverSimilar(){
             listaBuscada.push(listaVideojuegos[i]);
         }
     }
-    return listaBuscada;
+    mostrarVideojuegosHTML(listaBuscada);
 }
 
 function buscarElementoUsuario(){
-    let usuarioBuscado = document.getElementById('usuarioBuscado').value;
-    let usuarioEncontrado = listaUsuarios.find( x => x.nombre===usuarioBuscado);
-    return usuarioEncontrado.listarVideojuegosFavorito();
+    let busquedaUsuario = document.getElementById('busquedaUsuario').value;
+    let usuarioEncontrado = listaUsuarios.find( x => x.nombre===busquedaUsuario);
+    mostrarVideojuegosHTML(usuarioEncontrado.videojuegosFavoritos);
 }
 
+let botonBuscarElementoUsuario = document.getElementById('botonBuscarElementoUsuario');
+botonBuscarElementoUsuario.addEventListener('click', function(event){
+    event.preventDefault();
+    buscarElementoUsuario();
+})
+
 function buscarVideojuegoPorNombre(){
-    let videojuegoBuscadoNombre = document.getElementById('videojuegoBuscadoNombre').value;
-    let videojuego = listaVideojuegos.find( x => x.nombre===videojuegoBuscadoNombre);
-    return videojuego;
+    let videojuegoBuscadoInput = document.getElementById('videojuegoBuscadoNombre');
+    let videojuegoBuscado = videojuegoBuscadoInput.value;
+    let nuevaLista = listaVideojuegos.filter( videojuego => videojuego.videojuegoParecido(videojuegoBuscado));
+    mostrarVideojuegosHTML(nuevaLista);
 }
+
+let botonBuscarVideojuegoNombre = document.getElementById('botonBuscarVideojuegoNombre');
+botonBuscarVideojuegoNombre.addEventListener('click', function(event){
+    event.preventDefault();
+    buscarVideojuegoPorNombre();
+})

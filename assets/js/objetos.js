@@ -100,5 +100,12 @@ videojuegoTF.id = listaVideojuegos.length;
 listaVideojuegos.push(videojuegoGW);
 videojuegoGW.id = listaVideojuegos.length;
 
+let listaUsuarios = [];
+
+let usuarioUno = new Usuario("Javier");
+listaUsuarios.push(usuarioUno);
+usuarioUno.addVideojuegoFavorito(videojuegoHL);
+usuarioUno.addVideojuegoFavorito(videojuegoHL2);
+
 mostrarVideojuegosHTML(listaVideojuegos);
 

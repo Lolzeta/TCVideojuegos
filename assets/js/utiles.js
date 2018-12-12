@@ -14,7 +14,7 @@ function mostrarVideojuegosHTML(listaDeVideojuegos){
 	let divVideojuegos  = document.getElementById('videojuegos');
 	divVideojuegos.innerHTML = '';
 	if(listaDeVideojuegos.length === 0){
-		divVideojuegos.innerHTML = 'NO HAY VIDEOJUEGOS QUE MOSTRAR';
+		divVideojuegos.innerHTML = '';
 	}else{
 		listaDeVideojuegos.forEach( videojuego => videojuego.mostrarVideojuegos(divVideojuegos));
 	}
