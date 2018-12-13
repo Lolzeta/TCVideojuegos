@@ -3,6 +3,7 @@ function crearVideojuego(){
     let nombreEmpresa = document.getElementById("nombreEmpresa");
     let nombrePlataforma = document.getElementById("nombrePlataforma");
     let nombreGenero = document.getElementById("nombreGenero");
+    let nombreYearSalida = document.getElementById("nombreYearSalida");
     // Hacer validaciones
     empresa = listaEmpresas.find( x => x.nombre === nombreEmpresa.value);
     if(empresa === undefined){
@@ -14,7 +15,7 @@ function crearVideojuego(){
         plataforma = new Plataforma(nombrePlataforma.value);
         listaPlataformas.push(plataforma);
     }
-    let videojuego = new Videojuego(nombreVideojuego.value,empresa, plataforma, nombreGenero.value,"noreconocido.jpg", undefined);
+    let videojuego = new Videojuego(nombreVideojuego.value,empresa, plataforma, nombreGenero.value,"noreconocido.jpg", nombreYearSalida.value, undefined);
     listaVideojuegos.push(videojuego);
     videojuego.id = listaVideojuegos.length;
     empresa.addVideojuego(videojuego);
@@ -57,11 +58,21 @@ function validarGenero(){
     return validado;
 }
 
+function validarDate(){
+    let validado = true;
+    let salida = document.getElementById('nombreYearSalida').value.trim();
+    if(salida < 1971 && salida > 2018 || salida === ''){
+       validado = false; 
+    }
+    return validado;
+}
+
 function saltarErroresUno(){
     let errorNombre = document.getElementById('nombreVideojuego').nextElementSibling;
     let errorPlataforma = document.getElementById('nombrePlataforma').nextElementSibling;
     let errorEmpresa = document.getElementById('nombreEmpresa').nextElementSibling;
     let errorGenero = document.getElementById('nombreGenero').nextElementSibling;
+    let errorSalida = document.getElementById('nombreYearSalida').nextElementSibling;
     
 
     if(!validarNombre('nombreVideojuego')){
@@ -87,6 +98,12 @@ function saltarErroresUno(){
     } else{
         errorGenero.innerHTML = "";
     }
+
+    if(!validarDate()){
+        errorSalida.innerHTML = "El año debe de ser mayor a 1971 y menor o igual a 2018";
+    } else {
+        errorGenero.innerHTML = "";
+    }
 }
 
 function todoOkUno(){
@@ -94,6 +111,7 @@ function todoOkUno(){
     document.getElementById('nombrePlataforma').nextElementSibling.innerHTML = "";
     document.getElementById('nombreEmpresa').nextElementSibling.innerHTML = "";
     document.getElementById('nombreGenero').nextElementSibling.innerHTML = "";
+    document.getElementById('nombreYearSalida').nextElementSibling.innerHTML = "";
 }
 
 function todoOkDos(){
@@ -105,7 +123,7 @@ function todoOkDos(){
 let botonCrearVideojuego = document.getElementById('botonCrearVideojuego');
 botonCrearVideojuego.addEventListener('click', function(event){
     event.preventDefault();
-    if(validarEmpresa('nombreEmpresa') && validarNombre('nombreVideojuego') && validarGenero() && validarPlataforma()){
+    if(validarEmpresa('nombreEmpresa') && validarNombre('nombreVideojuego') && validarGenero() && validarPlataforma() && validarDate()){
         crearVideojuego();
         todoOkUno();
     } else{

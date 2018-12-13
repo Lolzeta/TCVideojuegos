@@ -1,5 +1,5 @@
     class Videojuego{
-    constructor(nombre, empresa, plataforma, genero, img, id){
+    constructor(nombre, empresa, plataforma, genero, img, yearSalida, id){
         this.nombre = nombre;
         this.empresa = empresa;
         this.plataforma = plataforma;
@@ -7,6 +7,7 @@
         this.id = id;
         this.img = img;
         this.votos = [];
+        this.yearSalida = yearSalida;
     }
 
     get nombre(){
@@ -57,6 +58,18 @@
         return this._id;
     }
 
+    set yearSalida(yearSalida){
+        this._yearSalida = yearSalida;
+    }
+
+    get yearSalida(){
+        return this._yearSalida;
+    }
+
+    get id(){
+        return this._id;
+    }
+
     set votos(votos){
         this._votos = votos;
     }
@@ -89,12 +102,15 @@
 		let empresa = document.createElement('h3');
         empresa.innerHTML = this.empresa.nombre;
         let plataforma = document.createElement('h4');
-		plataforma.innerHTML = this.plataforma.nombre;
+        plataforma.innerHTML = this.plataforma.nombre;
+        let yearSalida = document.createElement('h4');
+		yearSalida.innerHTML = this.yearSalida;
 		bloque.append(imagen);
 		bloque.append(titulo);
 		bloque.append(genero);
         bloque.append(empresa);
         bloque.append(plataforma);
+        bloque.append(yearSalida);
 		nodoHTML.appendChild(bloque);
     }
     
