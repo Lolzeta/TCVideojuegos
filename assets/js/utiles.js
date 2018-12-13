@@ -12,6 +12,7 @@ function tratarCadenasInput(cadena){
 
 function mostrarVideojuegosHTML(listaDeVideojuegos){
 	let divVideojuegos  = document.getElementById('videojuegos');
+	divVideojuegos.innerHTML = '';
 	if(listaDeVideojuegos.length === 0){
 		divVideojuegos.innerHTML = '';
 	}else{
@@ -21,5 +22,11 @@ function mostrarVideojuegosHTML(listaDeVideojuegos){
 
 function incluirVideojuegoHTML(videojuego){
 	let divVideojuegos  = document.getElementById('videojuegosCreados');
+	videojuego.mostrarVideojuegos(divVideojuegos);
+}
+
+function mostrarUno(videojuego){
+	let divVideojuegos  = document.getElementById('videojuegosCreados');
+	divVideojuegos.innerHTML = "";
 	videojuego.mostrarVideojuegos(divVideojuegos);
 }

@@ -181,7 +181,7 @@ body {
     border-width: 3px;
 }
 
-.crearVid{
+.gestionPadre{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -192,9 +192,10 @@ body {
     color: black;
     font-weight: bold;
     font-size: 120%;
+    height: 100%;
 }
 
-.crearVid input{
+.gestionPadre input{
     border-image: linear-gradient(to right,#EE7752, #E73C7E, #23A6D5, #23D5AB);
     border-image-slice: 1;
     border-width: 3px;
@@ -208,7 +209,6 @@ body {
 
 .tituloCrear{
     color: darkviolet;
-    align-self: center;
 }
 
 #botonCrearVideojuego{

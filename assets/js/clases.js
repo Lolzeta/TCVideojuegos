@@ -174,6 +174,11 @@ class Empresa{
         this.videojuegos.push(videojuego);
         }
     }
+
+    quitarVideojuego(videojuego){
+        let index = this.videojuegos.indexOf(videojuego);
+        this.videojuegos.splice(index,1);
+    }
 }
 
 class Plataforma{
