@@ -174,8 +174,7 @@ body {
     margin-top: 5px;
     border-top: solid darkblue 3px; 
 }
-
-.busqueda input{
+input{
     border-image: linear-gradient(to right,#EE7752, #E73C7E, #23A6D5, #23D5AB);
     border-image-slice: 1;
     border-width: 3px;
@@ -193,12 +192,6 @@ body {
     font-weight: bold;
     font-size: 120%;
     height: 100%;
-}
-
-.gestionPadre input{
-    border-image: linear-gradient(to right,#EE7752, #E73C7E, #23A6D5, #23D5AB);
-    border-image-slice: 1;
-    border-width: 3px;
 }
 
 .campo{
@@ -235,4 +228,43 @@ body {
     left: 0;
     right: 0;
     margin-left: 3px;
+}
+
+.botonGestiones{
+    display: flex;
+    background-color: lightblue;
+    font-weight: bold;
+    color: black;
+    justify-content: center;
+    align-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.usuarioComentario{
+    background-color: lightblue;
+    font-weight: bold;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.comentarioClass{
+    display: flex;
+    align-content: flex-start;
+    margin-top: 10px;
+}
+
+.comentarioClass label{
+    padding-right: 15px;
+}
+
+.separacionBotonUsuario{
+    margin: 10px;
+}
+
+.warning{
+    color: orangered;
+    font-weight: bold;
+    margin-left: 5px;
 }

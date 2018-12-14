@@ -6,7 +6,8 @@
         this.genero = genero;
         this.id = id;
         this.img = img;
-        this.votos = [];
+        this.votos = 0;
+        this.comentarios = [];
         this.yearSalida = yearSalida;
     }
 
@@ -79,15 +80,17 @@
     }
 
     addValoracion(valoracion){
-        this.votos.push(valoracion);
+        let resultado = 0;
+        if(valoracion>0){
+            resultado = 1;
+        } else{
+            resultado = -1;
+        } 
+        this.votos += resultado;
     }
 
-    imprimirVotos(){
-        votacion = 0;
-        for (let i = 0; i < votos.length; i++) {
-            votacion += votos[i].voto;
-        }
-        return votacion;
+    addComentario(comentario){
+        this.comentarios.push(comentario);
     }
 
     mostrarVideojuegos(nodoHTML){
@@ -104,13 +107,23 @@
         let plataforma = document.createElement('h4');
         plataforma.innerHTML = this.plataforma.nombre;
         let yearSalida = document.createElement('h4');
-		yearSalida.innerHTML = this.yearSalida;
+        yearSalida.innerHTML = this.yearSalida;
+        let votos = document.createElement('h4');
+        votos.innerHTML = `Votos: ${this.votos}`
+        let comentario = document.createElement('h4');
+        let mensaje = 'Comentarios:</br>';
+        for (let i = 0; i < this.comentarios.length; i++) {
+            mensaje+= `${this.comentarios[i]}</br>`;
+        }
+        comentario.innerHTML = mensaje;
 		bloque.append(imagen);
 		bloque.append(titulo);
 		bloque.append(genero);
         bloque.append(empresa);
         bloque.append(plataforma);
         bloque.append(yearSalida);
+        bloque.append(votos);
+        bloque.append(comentario);
 		nodoHTML.appendChild(bloque);
     }
     
@@ -212,10 +225,12 @@ class Plataforma{
 }
 
 class Usuario{
-    constructor(nombre){
+    constructor(nombre, id){
         this.nombre = nombre;
         this.videojuegosFavoritos = [];
         this.votos = [];
+        this.comentarios = [];
+        this.id = id;
     }
 
     get nombre(){
@@ -242,9 +257,21 @@ class Usuario{
         this._votos = votos;
     }
 
-   añadirAListaVoto(voto){
-       this.votos.push(voto);
-   }
+    get comentarios(){
+        return this._comentarios;
+    }
+    
+    set comentarios(comentarios){
+        this._comentarios = comentarios;
+    }
+
+    get id(){
+        return this._id; 
+    }
+
+    set id(id){
+        this._id = id;
+    }
 
    listarVideojuegosFavorito(){
        mensaje = '';
@@ -262,24 +289,30 @@ class Usuario{
 
     votarVideojuego(videojuego,voto){
         let valoracion = new Voto(voto, this, videojuego);
-        videojuego.addValoracion(valoracion);
-        listaVotos.push(valoracion);
+        videojuego.addValoracion(valoracion.voto);
+        this.votos.push(valoracion);
+    }
+
+    addOpinion(videojuego, comentario){
+        let opinion = new Comentario(comentario, this, videojuego);
+        videojuego.addComentario(comentario);
+        this.comentarios.push(opinion);
     }
 }
 
 class Voto{
-    constructor(voto, usuario, videojuego){
+    constructor(voto, usuario, videojuego, id){
         this.voto = voto;
         this.usuario = usuario;
         this.videojuego = videojuego;
     }
 
-    set voto(voto){
-        this._voto = voto;
+    get voto(){
+        return this._voto; 
     }
 
     set voto(voto){
-        return this._voto; 
+        this._voto = voto; 
     }
 
     get usuario(){
@@ -292,6 +325,38 @@ class Voto{
 
     get videojuego(){
         return this._videojuego; 
+    }
+
+    set videojuego(videojuego){
+        this._videojuego = videojuego;
+    }
+}
+
+class Comentario{
+    constructor(comentario, usuario, videojuego){
+        this.comentario = comentario;
+        this.usuario = usuario;
+        this.videojuego = videojuego;
+    }
+
+    get comentario(){
+        return this._comentario;
+    }
+    
+    get usuario(){
+        return this._usuario;
+    }
+
+    get videojuego(){
+        return this._videojuego;
+    }
+
+    set comentario(comentario){
+        this._comentario = comentario;
+    }
+
+    set usuario(usuario){
+        this._usuario = usuario;
     }
 
     set videojuego(videojuego){

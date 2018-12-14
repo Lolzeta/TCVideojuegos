@@ -19,5 +19,51 @@
         <a href="usuario.html">Usuario</a>
         </div>
     </nav>
+
+    <main>
+            <section>
+                <div class="usuarioComentario">
+                    <form>
+                        <label for="selectVideojuegos">Videojuego a votar y comentar:</label>
+                        <select id="selectVideojuegos" name="selectVideojuegos">
+                                
+                        </select>
+
+                        <label for="selectUsuario">Usuario:</label>
+                        <select id="selectUsuario" name="selectUsuario">
+                                
+                        </select>
+
+                        <label for="selectVotos">Votar:</label>
+                        <select id="selectVotos" name="selectVotos">
+                            <option value="1" style="color: green">+1</option>
+                            <option value="-1" style="color: red">-1</option>
+                        </select>
+                        <div class="comentarioClass">
+                            <label for="comentarioUsuario">Comentario:</label>
+                            <textarea id="comentarioUsuario" cols="50"></textarea>
+                            <p class="warning"></p>
+                        </div>
+
+                        <div class="separacionBotonUsuario">
+                            <button id="enviarVotoComentario">Enviar voto comentario</button>
+                        </div>
+                    </form>
+                </div>
+                <h2 class="titulo">LISTA DE VIDEOJUEGOS</h2>
+                <div id="videojuegos" class="videojuegosFlex">
+                    
+                </div>
+                
+            </section>
+        </main>
+       
+    
+        <footer>
+                <script type="text/javascript" src="assets/js/clases.js" defer cache="false"></script>
+                <script type="text/javascript" src="assets/js/utiles.js" defer cache="false"></script>
+                <script type="text/javascript" src="assets/js/objetos.js" defer cache="false"></script>
+                <script type="text/javascript" src="assets/js/usuario.js" defer cache="false"></script>
+        </footer>
 </body>
 </html>

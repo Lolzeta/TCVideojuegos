@@ -104,10 +104,17 @@ videojuegoGW.id = listaVideojuegos.length;
 
 let listaUsuarios = [];
 
-let usuarioUno = new Usuario("Javier");
+let usuarioUno = new Usuario("Javier", undefined);
+let usuarioDos = new Usuario("Pepe", undefined);
 listaUsuarios.push(usuarioUno);
+usuarioUno.id = listaUsuarios.length;
+listaUsuarios.push(usuarioDos);
+usuarioDos.id = listaUsuarios.length;
 usuarioUno.addVideojuegoFavorito(videojuegoHL);
 usuarioUno.addVideojuegoFavorito(videojuegoHL2);
+
+usuarioUno.votarVideojuego(videojuegoFIFA, 1);
+usuarioUno.votarVideojuego(videojuegoSSB,2);
 
 mostrarVideojuegosHTML(listaVideojuegos);
 

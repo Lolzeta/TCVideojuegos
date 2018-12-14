@@ -35,8 +35,18 @@ function incluirVideojuegoHTML(videojuego){
 	videojuego.mostrarVideojuegos(divVideojuegos);
 }
 
-function mostrarUno(videojuego){
-	let divVideojuegos  = document.getElementById('videojuegosCreados');
+function mostrarUno(videojuego, id){
+	let divVideojuegos  = document.getElementById(id);
 	divVideojuegos.innerHTML = "";
 	videojuego.mostrarVideojuegos(divVideojuegos);
+}
+
+function creacionSelectionVideojuegos(id){
+    let selection = document.getElementById(id);
+    for (let i = 0; i < listaVideojuegos.length; i++) {
+        let opcionNueva = document.createElement('option');
+        opcionNueva.value = listaVideojuegos[i].id;
+        opcionNueva.innerHTML = listaVideojuegos[i].nombre;
+        selection.append(opcionNueva);
+    }
 }

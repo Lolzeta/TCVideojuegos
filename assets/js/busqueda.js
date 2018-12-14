@@ -20,16 +20,6 @@ function buscarVideojuegoPorEmpresaYPlataforma(){
         event.preventDefault();
         mostrarVideojuegosHTML(listaVideojuegos);
     });
-
-function creacionSelectionVideojuegos(){
-    let selection = document.getElementById('selectVideojuegos');
-    for (let i = 0; i < listaVideojuegos.length; i++) {
-        let opcionNueva = document.createElement('option');
-        opcionNueva.value = listaVideojuegos[i].id;
-        opcionNueva.innerHTML = listaVideojuegos[i].nombre;
-        selection.append(opcionNueva);
-    }
-}
     
 function devolverSimilar(){
     let listaBuscada = [];
@@ -75,7 +65,7 @@ botonBuscarVideojuegoNombre.addEventListener('click', function(event){
 });
 
 document.addEventListener('DOMContentLoaded', function(event){
-    creacionSelectionVideojuegos();
+    creacionSelectionVideojuegos('selectVideojuegos');
 })
 
 
