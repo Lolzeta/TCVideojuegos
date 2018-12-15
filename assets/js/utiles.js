@@ -50,3 +50,13 @@ function creacionSelectionVideojuegos(id){
         selection.append(opcionNueva);
     }
 }
+
+function creacionSelectionUsuarios(id){
+    let selection = document.getElementById(id);
+    for (let i = 0; i < listaUsuarios.length; i++) {
+        let opcionNueva = document.createElement('option');
+        opcionNueva.value = listaUsuarios[i].id;
+        opcionNueva.innerHTML = listaUsuarios[i].nombre;
+        selection.append(opcionNueva);
+    }
+}

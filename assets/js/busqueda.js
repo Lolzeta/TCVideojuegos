@@ -40,8 +40,8 @@ botonBuscarSimilar.addEventListener('click', function(event){
 })
 
 function buscarElementoUsuario(){
-    let busquedaUsuario = document.getElementById('busquedaUsuario').value;
-    let usuarioEncontrado = listaUsuarios.find( x => x.nombre===busquedaUsuario);
+    let busquedaUsuario = parseInt(document.getElementById('selectUsuario').value);
+    let usuarioEncontrado = listaUsuarios.find( x => x.id===busquedaUsuario);
     mostrarVideojuegosHTML(usuarioEncontrado.videojuegosFavoritos);
 }
 
@@ -66,6 +66,7 @@ botonBuscarVideojuegoNombre.addEventListener('click', function(event){
 
 document.addEventListener('DOMContentLoaded', function(event){
     creacionSelectionVideojuegos('selectVideojuegos');
+    creacionSelectionUsuarios('selectUsuario');
 })
 
 

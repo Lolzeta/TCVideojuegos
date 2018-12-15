@@ -29,8 +29,8 @@
                                 
                         </select>
 
-                        <label for="selectUsuario">Usuario:</label>
-                        <select id="selectUsuario" name="selectUsuario">
+                        <label for="selectUsuarioComentario">Usuario:</label>
+                        <select id="selectUsuarioComentario" name="selectUsuarioComentario">
                                 
                         </select>
 
@@ -49,7 +49,35 @@
                             <button id="enviarVotoComentario">Enviar voto comentario</button>
                         </div>
                     </form>
+                    <div class="espaciado">
+                        <form>
+                            <label for="selectUsuario">Videojuegos votados del usuario:</label>
+                            <select id="selectUsuario" name="selectUsuario">
+                                        
+                            </select>
+                            <button id="busquedaVotosUsuario" name="busquedaVotosUsuario">Encontrar videojuegos votados</button>
+                        </form>
+                    </div>
+                    <div class="espaciado">
+                        <form>
+                            <label for="usuarioSimilar">Encontrar videojuegos similares al favorito del usuario</label>
+                            <select id="usuarioSimilar" name="usuarioSimilar">
+
+                            </select>
+                            <button id="encontrarUsuarioVidSimilar" name="encontrarUsuarioVidSimilar">Encontrar favoritos similares</button>
+                        </form>
+                    </div>
+                    <div class="espaciado">
+                        <form>
+                            <label for="usuarioEncComentario">Encontrar videojuegos comentados por el usuario:</label>
+                            <select id="usuarioEncComentario" name="usuarioEncComentario">
+
+                            </select>
+                            <button id='encontrarVidUsuComen' name="encontrarVidUsuComen">Encontrar videojuegos comentados</button>
+                        </form>
+                    </div>
                 </div>
+                
                 <h2 class="titulo">LISTA DE VIDEOJUEGOS</h2>
                 <div id="videojuegos" class="videojuegosFlex">
                     

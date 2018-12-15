@@ -113,7 +113,7 @@
         let comentario = document.createElement('h4');
         let mensaje = 'Comentarios:</br>';
         for (let i = 0; i < this.comentarios.length; i++) {
-            mensaje+= `${this.comentarios[i]}</br>`;
+            mensaje+= `<hr>${this.comentarios[i]}`;
         }
         comentario.innerHTML = mensaje;
 		bloque.append(imagen);

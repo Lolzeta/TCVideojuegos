@@ -112,9 +112,12 @@ listaUsuarios.push(usuarioDos);
 usuarioDos.id = listaUsuarios.length;
 usuarioUno.addVideojuegoFavorito(videojuegoHL);
 usuarioUno.addVideojuegoFavorito(videojuegoHL2);
+usuarioUno.addVideojuegoFavorito(videojuegoBF);
+usuarioUno.votarVideojuego(videojuegoHL, 1);
+usuarioUno.addOpinion(videojuegoHL,'Es un buen videojuego, +1');
 
 usuarioUno.votarVideojuego(videojuegoFIFA, 1);
-usuarioUno.votarVideojuego(videojuegoSSB,2);
+usuarioUno.votarVideojuego(videojuegoSSB,1);
 
 mostrarVideojuegosHTML(listaVideojuegos);
 
